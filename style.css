@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0;
+}
+
+.result h2:nth-child(2) {
+    margin-left: 80px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #FF0000;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 16px;
+}
+
+h3 {
+    text-align: center;
+}
+
+#pingPongCanvas {
+    width: 900px;
+    height: 550px;
+    border: 1px solid #000000;
+}
+
+.p1points,
+.p2points {
+    font-family: 'Orbitron', sans-serif;
+    color: #FF0000;
+    font-size: 36px;
+    margin-left: 8px;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 200px;
+    font-size: 24px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 8px 0;
+    margin-top: 24px;
+    transition: 0.6s;
+}
+
+a:hover {
+    color: #FFFFFF;
+    background-color: #FF0000;
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #FF0000;
+    padding: 40px;
+    border-radius: 16px;
+}
+
+a.playButton {
+    cursor: pointer;
+}

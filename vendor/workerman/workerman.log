@@ -1,0 +1,10 @@
+2023-01-16 02:42:27 pid:1 Error: Call to a member function send() on null in C:\MAMP\htdocs\websockets\start.php:24
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2535): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(311): Workerman\Worker->acceptConnection()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#6 C:\MAMP\htdocs\websockets\start.php(58): Workerman\Worker::runAll()
+#7 {main}
