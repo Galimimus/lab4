@@ -1,12 +1,45 @@
 
 var ws;
+var role = "none";
 function openSocket() {
     ws = new WebSocket("ws://127.0.0.1:8282");
     ws.onopen = function() {
         console.log("WebSocket opened.");
     };
-    ws.onmessage = function(event) {
-        console.log("WebSocket message received: " + event.data);
+    ws.onmessage = function(e) {
+        var temp_data = e.data 
+        console.log(temp_data);
+        var parse_data = JSON.parse(temp_data);
+        event_type = parse_data.event;
+        console.log(event_type);
+        switch(event_type) {
+            case "updateBall":
+                ball_X = parse_data.ball_X;
+                ball_Y = parse_data.ball_Y;
+                drawActualState();
+                break;
+            case "updateResult":
+                p1points.innerText = parse_data.p1points;
+                p2points.innerText = parse_data.p2points;
+                if(parse_data.p1points == 10 || parse_data.p2points == 10) {
+                    alert("Game over!");
+                    p1points.innerText = 0;
+                    p2points.innerText = 0;
+                }
+                break;
+            case "setRole":
+                role = parse_data.role;
+                console.log("Role: " + role);
+                break;
+            case "moveOpponent":
+                if(parse_data.role == "left") {
+                    paddleP1_Y = parse_data.y;
+                } else if(parse_data.role == "right") {
+                    paddleP2_Y = parse_data.y;
+                }
+                drawActualState();
+            break;
+        }
     };
     ws.onclose = function() {
         console.log("WebSocket closed.");
@@ -34,11 +67,15 @@ let paddleP1_Y = 300;
 const paddleP2_X = 860;
 let paddleP2_Y = 100;
 const paddleStart_Y = (canvasHeight - paddleHeight) / 2;
+
 const ball_R = 10;
 const ballStart_X = canvasWidth / 2;
 const ballStart_Y = canvasHeight / 2;
 const ballSpeedStart_X = 2;
 const ballSpeedStart_Y = 2;
+
+
+
 const changeState = 20;
 
 let ball_X = ballStart_X;
@@ -73,71 +110,6 @@ drawActualState = () => {
     drawPaddle(paddleP2_X, paddleP2_Y);
 }
 
-//Ball moving
-ballOutsideLeft = () => ball_X + ball_R <= 0;
-ballOutsideRight = () => ball_X - ball_R >= canvasWidth;
-ballBounceFromBottom = () => ball_Y + ball_R >= canvasHeight;
-ballBounceFromTop = () => ball_Y - ball_R <= 0;
-
-ballisBetweenPaddle = (value, min, max) => value >= min && value <= max;
-
-updateResult = () => {
-    if (ballOutsideLeft()) {
-        moveBalltoStartPosition();
-        p2points.innerText++;
-        ballDirection_X = 2;
-        ballDirection_Y = 2;
-    } else if (ballOutsideRight()) {
-        moveBalltoStartPosition();
-        p1points.innerText++;
-        ballDirection_X = 2;
-        ballDirection_Y = 2;
-    }
-}
-
-doubleBallSpeed = () => {
-    ballDirection_X = 2 * ballDirection_X;
-    ballDirection_Y = 2 * ballDirection_Y;
-}
-
-updateMove = () => {
-    if (ballBounceFromBottom()) {
-        console.log("Bounce from Bottom");
-        ballDirection_Y = -ballDirection_Y;
-    }
-    if (ballBounceFromTop()) {
-        console.log("Bounce from Top");
-        ballDirection_Y = -ballDirection_Y;
-    }
-    if (ballisBetweenPaddle(ball_Y, paddleP2_Y, paddleP2_Y + paddleHeight) && (ball_X == paddleP2_X - paddleP1_X)) {
-        console.log("Bounce from Right Paddle");
-        ballDirection_X = -ballDirection_X;
-        //doubleBallSpeed();
-    }
-    if (ballisBetweenPaddle(ball_Y, paddleP1_Y, paddleP1_Y + paddleHeight) && (ball_X == paddleP1_X + paddleWidth + paddleP1_X)) {
-        console.log("Bounce from Left Paddle");
-        ballDirection_X = -ballDirection_X;
-        //doubleBallSpeed();
-    }
-}
-
-ballMove = () => {
-    ball_X += ballDirection_X;
-    ball_Y += ballDirection_Y;
-}
-
-moveBalltoStartPosition = () => {
-    ball_X = ballStart_X;
-    ball_Y = ballStart_Y;
-}
-
-setInterval(updateStateAndDrawState = () => {
-    ballMove();
-    updateResult();
-    updateMove();
-    drawActualState();
-}, changeState);
-
 //Paddle moving
 const paddle_Y_max = 450;
 const paddle_Y_min = 0;
@@ -147,22 +119,47 @@ let keys;
 document.addEventListener("keydown", function(e) {
     keys = (keys || []);
     keys[e.keyCode] = true;
+    let responseData;
     //KeyA
-    if (keys[65] && paddleP1_Y !== paddle_Y_min) {
-        paddleP1_Y -= paddle_Y_steps;
+    if (keys[65]) {
+        if(role === "left" && paddleP1_Y !== paddle_Y_min){
+            paddleP1_Y -= paddle_Y_steps;
+            responseData = {
+                "event": "movePaddle",
+                "y": paddleP1_Y
+            };
+            ws.send(JSON.stringify(responseData));
+        }else if(role === "right" && paddleP2_Y !== paddle_Y_min){
+            paddleP2_Y -= paddle_Y_steps;
+            responseData = {
+                "event": "movePaddle",
+                "y": paddleP2_Y
+            };
+            ws.send(JSON.stringify(responseData));
+        }
     }
     //KeyZ
-    if (keys[90] && paddleP1_Y !== paddle_Y_max) {
-        paddleP1_Y += paddle_Y_steps;
+    if (keys[90]) {
+
+        if(role === "left" && paddleP1_Y !== paddle_Y_max){
+            paddleP1_Y += paddle_Y_steps;
+            responseData = {
+                "event": "movePaddle",
+                "y": paddleP1_Y
+            };
+            ws.send(JSON.stringify(responseData));
+        }else if(role === "right" && paddleP2_Y !== paddle_Y_max){
+
+            paddleP2_Y += paddle_Y_steps;
+            responseData = {
+                "event": "movePaddle",
+                "y": paddleP2_Y
+            };
+            ws.send(JSON.stringify(responseData));
+        }
     }
-    //KeyK
-    // if (keys[75] && paddleP2_Y !== paddle_Y_min) {
-    //     paddleP2_Y -= paddle_Y_steps;
-    // }
-    // //KeyM
-    // if (keys[77] && paddleP2_Y !== paddle_Y_max) {
-    //     paddleP2_Y += paddle_Y_steps;
-    // }
+
+
 }, false);
 
 document.addEventListener("keyup", function(e) {

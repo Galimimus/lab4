@@ -18,7 +18,10 @@
     </div>
     <canvas id="pingPongCanvas" width="900" height="550"></canvas>
     <a href="./index.php">Exit</a>
-    <script src="./script.js"></script>
+    <a id="btn" onclick = 'ws.send("{\"event\":\"startGame\"}")'>Start game</a>
+    <script
+        src="./script.js">
+    </script>
 </body>
 
 </html>

@@ -8,3 +8,93 @@ Stack trace:
 #5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
 #6 C:\MAMP\htdocs\websockets\start.php(58): Workerman\Worker::runAll()
 #7 {main}
+2023-01-16 21:25:04 pid:1 Error: Call to a member function send() on null in C:\MAMP\htdocs\websockets\functions.php:146
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\functions.php(131): {closure}()
+#1 C:\MAMP\htdocs\websockets\start.php(56): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#7 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#8 C:\MAMP\htdocs\websockets\start.php(98): Workerman\Worker::runAll()
+#9 {main}
+2023-01-16 21:44:13 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:128
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(56): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(98): Workerman\Worker::runAll()
+#8 {main}
+2023-01-16 22:01:10 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:128
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(59): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(101): Workerman\Worker::runAll()
+#8 {main}
+2023-01-16 22:01:56 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:128
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(59): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(101): Workerman\Worker::runAll()
+#8 {main}
+2023-01-16 22:02:38 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:128
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(59): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(101): Workerman\Worker::runAll()
+#8 {main}
+2023-01-16 22:40:06 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:127
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(60): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(99): Workerman\Worker::runAll()
+#8 {main}
+2023-01-16 22:57:02 pid:1 Error: Call to a member function send() on null in C:\MAMP\htdocs\websockets\functions.php:145
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\functions.php(130): {closure}()
+#1 C:\MAMP\htdocs\websockets\start.php(60): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#7 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#8 C:\MAMP\htdocs\websockets\start.php(99): Workerman\Worker::runAll()
+#9 {main}
+2023-01-16 23:25:26 pid:1 Error: Class "Timer" not found in C:\MAMP\htdocs\websockets\functions.php:127
+Stack trace:
+#0 C:\MAMP\htdocs\websockets\start.php(58): {closure}()
+#1 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(238): {closure}()
+#2 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Events\Select.php(299): Workerman\Events\Select->tick()
+#3 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(2470): Workerman\Events\Select->loop()
+#4 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1453): Workerman\Worker->run()
+#5 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(1396): Workerman\Worker::forkWorkersForWindows()
+#6 C:\MAMP\htdocs\websockets\vendor\workerman\workerman\Worker.php(560): Workerman\Worker::forkWorkers()
+#7 C:\MAMP\htdocs\websockets\start.php(95): Workerman\Worker::runAll()
+#8 {main}
